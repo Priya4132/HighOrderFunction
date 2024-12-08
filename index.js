@@ -51,4 +51,46 @@ let arr= [ { name: "Alice", marks: 58 },
  console.log(ans1);
    console.log(ans1.sort((a,b)=> a[1]<b[1]? 1:-1));//sorting result into descending order of count of categories
    
+// Q14.L1 - Employee Performance Evaluation System
+let arr= [
+
+    { name: "Alice", tasksCompleted: 8, rating: 4.7 },
+    
+    { name: "Bob", tasksCompleted: 4, rating: 4.0 },
+    
+    { name: "Charlie", tasksCompleted: 6, rating: 3.5 },
+    
+    { name: "David", tasksCompleted: 10, rating: 4.9 },
+    
+    { name: "Eve", tasksCompleted: 7, rating: 2.8 }
+    
+    ]
+    
+    let dataFiltered=arr.filter((el,i)=> el.tasksCompleted>5? el:null);
+    console.log(dataFiltered)
+    let ans=dataFiltered.map((el,i)=>{
+      let performaneLevel;
+    
+    if(el.rating>4.5){
+      performaneLevel= "Excellent";
+    }
+    else if(el.rating>3 && el.rating<=4.5){
+      performaneLevel= "Good";
+    }
+    else{
+       performaneLevel="Needs Improvement";
+    }
+    return  {name:el.name,performaneLevel}
+    })
+    console.log(ans);
+    let newArray=ans.sort((a,b)=>a.performaneLevel>b.performaneLevel? 1:-1);
+    // {
+    //   if (a.performaneLevel>b.performaneLevel){
+    //     return 1;
+    //   }
+    //   else{
+    //     return -1;
+    //   }
+    // });
+    console.log(newArray);
 
